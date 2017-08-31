@@ -1,4 +1,9 @@
-<img src="http://i.imgur.com/WQWi5sS.png" height="200px">
+# Pegg-mini
+
+Loads a public card, user answers, shows download app buttons.
+
+Forked from: https://github.com/sejr/vuefire-quickstart
+
 
 # vuefire-quickstart
 

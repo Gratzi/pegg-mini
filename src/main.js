@@ -2,21 +2,46 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
-import VueFire from 'vuefire'
+// import VueFire from 'vuefire'
+import VueRouter from 'vue-router'
 
+import GetApp from './components/GetApp'
+import Card from './components/Card'
 import App from './App'
+import Firebase from 'firebase'
 
-/*
- * Because we installed VueFire via npm and imported it as a module, we have
- * to add this little snippet of code to 'install' it. If you include the lib
- * via typical <script> tags in your HTML document, this isn't required.
- */
+// Vue.use(VueFire)
+Vue.use(VueRouter)
 
-Vue.use(VueFire)
+let config = {
+  apiKey: 'AIzaSyApIrAspdVpN3lhH9W1RGrLJEzIVS9mEaQ',
+  authDomain: 'shutupandbuyit-a2731.firebaseapp.com',
+  databaseURL: 'https://shutupandbuyit-a2731.firebaseio.com',
+  projectId: 'shutupandbuyit-a2731',
+  storageBucket: 'shutupandbuyit-a2731.appspot.com',
+  messagingSenderId: '173424466260'
+}
+
+// Here we are initializing the Firebase connection.
+let app = Firebase.initializeApp(config)
+let db = app.database()
+window.firebaseDB = db.ref('public')
+
+const routes = [
+  { path: '/c/:userId/:cardId', component: Card },
+  { path: '/', component: GetApp },
+  { path: '*', component: { template: '<div>Not found</div>' } }
+]
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   template: '<App/>',
-  components: { App }
+  components: { App },
+  router
 })

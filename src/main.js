@@ -14,12 +14,12 @@ import Firebase from 'firebase'
 Vue.use(VueRouter)
 
 let config = {
-  apiKey: 'AIzaSyApIrAspdVpN3lhH9W1RGrLJEzIVS9mEaQ',
-  authDomain: 'shutupandbuyit-a2731.firebaseapp.com',
-  databaseURL: 'https://shutupandbuyit-a2731.firebaseio.com',
-  projectId: 'shutupandbuyit-a2731',
-  storageBucket: 'shutupandbuyit-a2731.appspot.com',
-  messagingSenderId: '173424466260'
+  apiKey: 'AIzaSyAmipeGHKpEfPcHNPI59edisxFgA4O2k-I',
+  authDomain: 'pegg-staging.firebaseapp.com',
+  databaseURL: 'https://pegg-staging.firebaseio.com',
+  projectId: 'pegg-staging',
+  storageBucket: 'pegg-staging.appspot.com',
+  messagingSenderId: '250031922855'
 }
 
 // Here we are initializing the Firebase connection.

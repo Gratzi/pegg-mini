@@ -17,10 +17,11 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
     const firstName = card.userName;
     const doc =
       "<!DOCTYPE html><html><head>"+
+      "<link rel='icon' type='image/x-icon' href='/static/favicon.ico'/>" +
       "<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no'>" +
       "<meta property='fb:app_id' content='1410524409215955'>" +
-      "<meta property='og:url' content='" + req.url + "'/>" +
-      "<meta property='og:type' content='video' />" +
+      "<meta property='og:url' content='https://pegg-staging.firebaseapp.com" + req.url + "'/>" +
+      // "<meta property='og:type' content='video' />" +
       "<meta property='og:title' content='" + question + "'/>" +
       "<meta property='og:description' content='Pegg " + firstName + "'/>" +
       "<meta property='og:image' content='https://i.imgur.com/V6jGCIMb.jpg'/>"  +
@@ -33,8 +34,8 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
       "<meta name='twitter:card' content='summary_large_image'>" +
       "<meta name='twitter:site' content='@pegg_us'>" +
       "<meta name='twitter:creator' content='@augustinbralley'>" +
-      "<meta name='twitter:title' content='Pegg " + firstName + "'/>" +
-      "<meta name='twitter:description' content='" + question + "'>" +
+      "<meta name='twitter:title' content='" + question + "'/>" +
+      "<meta name='twitter:description' content='Pegg " + firstName + "'>" +
       "<meta name='twitter:text:description' content='" + question + "'>" +
       "<meta name='twitter:image' content='" + image + "'>" +
       "<link href='/static/css/app.b063a4677c255079a58b2b61ab5b3edb.css' rel=stylesheet>" +

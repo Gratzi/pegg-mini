@@ -13,7 +13,7 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
   admin.database().ref('public/' + userId + '/' + cardId).once('value', (snapshot) => {
     var card = snapshot.val();
     const question = card.question.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
-    const image = card.image;
+    const image = card.pref.answer.image.url;
     const firstName = card.userName;
     const doc =
       "<!DOCTYPE html><html><head>"+

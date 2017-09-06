@@ -6,7 +6,7 @@
       <div id='frontClouds'>
         <!-- <img id='frontClouds' src='../assets/clouds-front-desktop.svg'/> -->
         <svg version='1.1' id='peggType' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px'
-           width='50vw' height='15vh' viewBox='0 0 425.197 198.425' enable-background='new 0 0 425.197 198.425'
+           width='42vw' height='14vh' viewBox='0 0 425.197 198.425' enable-background='new 0 0 425.197 198.425'
            xml:space='preserve'>
         <path fill='none' class='path' stroke='#FFFFFF' stroke-width='8' stroke-linecap='round' d='M309.802,83.75
           c3.945,7.073,10.229,12.376,18.097,14.392c16.811,4.306,34.493-8.025,39.494-27.545c0.718-2.799,1.126-5.595,1.265-8.342
@@ -46,13 +46,7 @@ export default {
 <style scoped>
 
   #getApp {
-    background-image: url('../assets/clouds-back-desktop.svg');
-    -webkit-background-size: 200vh;
-    -moz-background-size: 200vh;
-    -o-background-size: 200vh;
-    background-size: 200vh;
-    background-position: top 40vh left;
-    background-repeat: no-repeat;
+
   }
 
   #frontClouds {
@@ -66,6 +60,7 @@ export default {
     background-repeat: no-repeat;
     text-align: center;
     width: 100vw;
+    z-index: 2;
   }
 
   #frontClouds .path{
@@ -90,12 +85,13 @@ export default {
 
   #unicorn {
     /*width: 123px;*/
-    height: 50vh;
+    height: 42vh;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 19px;
     top: 5vh;
     position: relative;
-    z-index: -1;
+    z-index: 1;
+    margin-top: 41px;
   }
 
   #tagline {

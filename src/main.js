@@ -6,7 +6,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import GetApp from './components/GetApp'
-import Card from './components/Card'
+import PlayCard from './components/PlayCard'
 import App from './App'
 import Firebase from 'firebase'
 
@@ -28,7 +28,7 @@ let db = app.database()
 window.firebaseDB = db.ref('public')
 
 const routes = [
-  { path: '/c/:userId/:cardId', component: Card },
+  { path: '/c/:userId/:cardId', component: PlayCard },
   { path: '/', component: GetApp },
   { path: '*', component: { template: '<div>Not found</div>' } }
 ]

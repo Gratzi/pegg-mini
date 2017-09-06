@@ -16,7 +16,7 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
     const image = card.pref.answer.image.url;
     const firstName = card.userName;
     const doc =
-      "<!DOCTYPE html><html><head>"+
+      "<!DOCTYPE html><html lang='en'><head>"+
       "<link rel='icon' type='image/x-icon' href='/static/favicon.ico'/>" +
       "<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no'>" +
       "<meta property='fb:app_id' content='1410524409215955'>" +

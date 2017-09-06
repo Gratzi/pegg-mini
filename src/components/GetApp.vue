@@ -50,7 +50,7 @@ export default {
   }
 
   #frontClouds {
-    height: 150px;
+    height: 23vh;
     background-image: url('../assets/clouds-front-desktop.svg');
     -webkit-background-size: 100vw;
     -moz-background-size: 100vw;
@@ -95,7 +95,7 @@ export default {
   }
 
   #tagline {
-    font-size: 22px;
+    font-size: 7vw;
     color: white;
     text-align: center;
     line-height: 26px;
@@ -106,7 +106,7 @@ export default {
 
   #subtitle {
     color: rgba(255, 255, 255, 0.5);
-    font-size: 18px;
+    font-size: 6vw;
     text-align: center;
     /*width: 351px;*/
     height: 50px;

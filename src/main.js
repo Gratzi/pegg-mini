@@ -2,16 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
-// import VueFire from 'vuefire'
 import VueRouter from 'vue-router'
+import VueTouch from 'vue-touch'
+import Firebase from 'firebase'
 
 import GetApp from './components/GetApp'
 import PlayCard from './components/PlayCard'
 import App from './App'
-import Firebase from 'firebase'
 
-// Vue.use(VueFire)
 Vue.use(VueRouter)
+Vue.use(VueTouch)
 
 let config = {
   apiKey: 'AIzaSyAmipeGHKpEfPcHNPI59edisxFgA4O2k-I',

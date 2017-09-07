@@ -1,8 +1,8 @@
 <template>
   <div id="cardContainer">
     <v-touch @pan="updateFlip" @panend="endFlip">
-      <div class="loading" v-if="loading">
-        Loading...
+      <div id='loading' v-if="loading">
+        <img src='../assets/loading-rainbow-bluebg.gif' />
       </div>
       <div id="card" v-else>
         <div class="front">
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import {TweenLite} from 'gsap'
+  import {TweenLite, Elastic} from 'gsap'
   import Vue from 'vue'
   import Utils from '../lib/Utils'
 
@@ -74,7 +74,7 @@
             _this.loading = false
             let value = snapshot.val()
             _this.card = {
-              avatarUrl: value.pref.user.avatarUrl + '?height=135&width=135&type=normal',
+              avatarUrl: value.pref.user.avatarUrl, // + '?height=135&width=135&type=normal',
               userName: value.pref.user.firstName,
               question: value.question.replace(/\[([^|]+)\|([^\]]+)]/g, '$1'),
               choices: value.choices,
@@ -82,7 +82,7 @@
               image: value.pref.answer.image.url
             }
           } else {
-            debugger
+            // debugger
           }
         })
       },
@@ -92,8 +92,8 @@
           this.canFlip = true
           this.currentSide = 1
           setTimeout(function () {
-            TweenLite.to('#card', 1, {rotationY: -180})
-            TweenLite.to('#continueButton', 1, {top: '78vh'})
+            TweenLite.to('#card', 0.5, {rotationY: -180})
+            TweenLite.to('#continueButton', 1.5, {top: '102%', ease: Elastic.easeOut.config(1, 0.3)})
           }, 1000)
         } else {
           Vue.set(this.card.choices[choice.id], 'status', 'selected fail')
@@ -155,7 +155,7 @@
   }
 
   .userName {
-    font-size: 16px;
+    font-size: 5vw;
     font-family: Montserrat-Bold, sans-serif;
     color: rgb(0, 176, 255);
     width: 93vw;
@@ -171,7 +171,7 @@
     line-height: 4vh;
     width: 93vw;
     height: 9vh;
-    padding: 20px;
+    padding: 7vw;
     position: relative;
     top: 8%
   }
@@ -187,6 +187,7 @@
   }
 
   .choice {
+    cursor: pointer;
     width: 95%;
     height: 12vh;
     margin: 0 auto;
@@ -230,6 +231,18 @@
     position: absolute;
     top: 23vh;
     max-height: 50vh;
+    z-index: 10;
+  }
+
+  #loading {
+    width: 50%;
+    height: 50%;
+  }
+
+  #loading img{
+    margin: 0 auto;
+    transform: translateX(50%) translateY(90%);
+    width: 100%;
   }
 
   #cardContainer {
@@ -264,9 +277,10 @@
     background-size: 93vw 76vh;
   }
   #card .front {
-
+    z-index: 8;
   }
   #card .back {
+    z-index: 4;
     transform: rotateY( 180deg );
   }
 
@@ -290,8 +304,7 @@
   .selected {
     width: 0px;
     height: 12vh;
-    animation: grow 0.5s forwards;
-    /*animation-iteration-count: infinite;*/
+    animation: grow 0.3s forwards;
     position: absolute;
     left: -3vw;
   }
@@ -315,5 +328,118 @@
     to {
       width: 93vw;
     }
+  }
+
+	@media screen and (min-width : 801px) {
+
+    .avatarUrl {
+      border-radius: 120px;
+      width: 120px;
+      height: 120px;
+      left: 127px;
+    }
+
+    #cardContainer {
+      width: 375px;
+      height: 540px;
+    }
+
+    #card {
+      color: #2c3e50;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+
+    #card .front, #card .back {
+      background-size: 375px 540px;
+    }
+
+    #answer {
+      font-size: 16px;
+      text-align: center;
+      line-height: 60px;
+      width: 375px;
+      height: 60px;
+    }
+
+    #answerImage {
+      top: 150px;
+      max-height: 400px;
+    }
+
+    .userName {
+      font-size: 16px;
+      width: 375px;
+      height: 60px;
+      top: 65px;
+    }
+
+    #question {
+      font-size: 20px;
+      text-align: center;
+      line-height: 24px;
+      width: 375px;
+      height: 70px;
+      top: 60px;
+      padding: 18px;
+
+    }
+
+    #choices {
+      color: black;
+      font-size: 18px;
+      margin-left: 18px;
+      top: 15%;
+    }
+
+    .choice {
+      width: 340px;
+      height: 80px;
+    }
+
+    .number {
+      font-size: 50px;
+      line-height: 70px;
+      height: 80px;
+      left: -10px;
+      width: 60px;
+    }
+
+    .selected {
+      width: 0px;
+      height: 80px;
+      animation: grow 0.5s forwards;
+      position: absolute;
+      left: -18px;
+    }
+
+    .verticalCenter {
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      display: block;
+      padding-left: 60px;
+    }
+
+    @keyframes grow {
+      from {
+        width:0px;
+      }
+      to {
+        width: 375px;
+      }
+    }
+
+    #continueButton {
+      line-height: 60px;
+      border-radius: 10px;
+      font-size: 18px;
+      width: 187px;
+      height: 60px;
+      top: 200%;
+      transform: translateX(50%);
+    }
+
   }
 </style>

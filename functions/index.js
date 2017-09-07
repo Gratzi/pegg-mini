@@ -12,9 +12,9 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
   console.log(req.url);
   admin.database().ref('public/' + userId + '/' + cardId).once('value', (snapshot) => {
     var card = snapshot.val();
-    const question = card.question.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
-    const image = card.pref.answer.image.url;
-    const firstName = card.userName;
+    const question = card.question.replace(/'/g, '&#39;').replace(/"/g, '&quot;').replace(/\[([^|]+)\|([^\]]+)]/g, '$1');
+    const image = card.pref.answer.image.url.replace(/http:/g, 'https:');
+    const userName = card.pref.user.name;
     const doc =
       "<!DOCTYPE html><html lang='en'><head>"+
       "<link rel='icon' type='image/x-icon' href='/static/favicon.ico'/>" +
@@ -23,25 +23,25 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
       "<meta property='og:url' content='https://pegg-staging.firebaseapp.com" + req.url + "'/>" +
       // "<meta property='og:type' content='video' />" +
       "<meta property='og:title' content='" + question + "'/>" +
-      "<meta property='og:description' content='Pegg " + firstName + "'/>" +
-      "<meta property='og:image' content='https://i.imgur.com/V6jGCIMb.jpg'/>"  +
+      "<meta property='og:description' content='Pegg " + userName + "'/>" +
+      "<meta property='og:image' content='" + image + "' />"  +
       "<meta property='og:video:url' content='" + image + "'/>"  +
       "<meta property='og:video:secure_url' content='" + image + "'/>"  +
       "<meta property='og:video:type' content='video/mp4'/>"  +
       "<meta property='og:video:width' content='541'/>"  +
       "<meta property='og:video:height' content='541'/>"  +
       "<meta property='og:site_name' content='Pegg - Spark Conversation'/>" +
-      "<meta name='twitter:card' content='summary_large_image'>" +
-      "<meta name='twitter:site' content='@pegg_us'>" +
-      "<meta name='twitter:creator' content='@augustinbralley'>" +
+      "<meta name='twitter:card' content='summary_large_image'/>" +
+      "<meta name='twitter:site' content='@pegg_us'/>" +
+      "<meta name='twitter:creator' content='@pegg_us'/>" +
       "<meta name='twitter:title' content='" + question + "'/>" +
-      "<meta name='twitter:description' content='Pegg " + firstName + "'>" +
-      "<meta name='twitter:text:description' content='" + question + "'>" +
-      "<meta name='twitter:image' content='" + image + "'>" +
-      "<link href='/static/css/app.b063a4677c255079a58b2b61ab5b3edb.css' rel=stylesheet>" +
-      "<script src='/static/js/manifest.fae709982857d00d4874.js'></script>" +
-      "<script src='/static/js/vendor.48bfaccb57b68c99b708.js'></script>" +
-      "<script src='/static/js/app.369127426603568c23f0.js'></script>" +
+      "<meta name='twitter:description' content='Pegg " + userName + "'/>" +
+      "<meta name='twitter:text:description' content='" + question + "'/>" +
+      "<meta name='twitter:image' content='" + image + "'/>" +
+      "<link href='/static/css/app.a3c9d7d61c5ed8f8b1aeee66f022b731.css' rel=stylesheet />" +
+      "<script src='/static/js/manifest.161618604c3da2cbdaf4.js'></script>" +
+      "<script src='/static/js/vendor.91cfb7e6c266fe47a8fe.js'></script>" +
+      "<script src='/static/js/app.ac1d215d5a9b608093eb.js' defer></script>" +
       "<title>Pegg - Spark Conversation</title>" +
       "</head><body>"+
       "<div id='app'></div>" +

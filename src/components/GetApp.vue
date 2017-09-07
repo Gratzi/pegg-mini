@@ -132,7 +132,6 @@ export default {
     }
   }
 
-
   @keyframes dash {
     from {
       stroke-dashoffset: 2000;
@@ -140,6 +139,63 @@ export default {
     to {
       stroke-dashoffset: 0;
     }
+  }
+
+  @media screen and (min-width : 801px) {
+
+      #frontClouds {
+        height: 480px;
+        -webkit-background-size: 600px;
+        -moz-background-size: 600px;
+        -o-background-size: 600px;
+        background-size: 600px;
+        margin: 0 auto;
+        width: 600px;
+      }
+
+      #frontClouds .path{
+      }
+
+      #peggType {
+        margin-top: 100px;
+        height: 100px;
+      }
+
+      .flexContainer {
+
+      }
+
+      #unicorn {
+        height: 600px;
+        padding-top: 0px;
+        top: 50px;
+        margin-top: 41px;
+      }
+
+      #tagline {
+        font-size: 30px;
+        height: 40px;
+        top: -60px;
+        position: relative;
+      }
+
+      #subtitle {
+        font-size: 24px;
+        height: 40px;
+        top: -30px;
+        position: relative;
+      }
+
+      .downloadButton {
+        width: 200px;
+        height: 60px;
+        padding: 5px;
+      }
+
+      #buttons {
+        text-align: center;
+      }
+
   }
 
 </style>

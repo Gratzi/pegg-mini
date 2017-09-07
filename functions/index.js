@@ -38,10 +38,10 @@ exports.ogRewrite = functions.https.onRequest((req, res) => {
       "<meta name='twitter:description' content='Pegg " + userName + "'/>" +
       "<meta name='twitter:text:description' content='" + question + "'/>" +
       "<meta name='twitter:image' content='" + image + "'/>" +
-      "<link href='/static/css/app.a3c9d7d61c5ed8f8b1aeee66f022b731.css' rel=stylesheet />" +
-      "<script src='/static/js/manifest.161618604c3da2cbdaf4.js'></script>" +
-      "<script src='/static/js/vendor.91cfb7e6c266fe47a8fe.js'></script>" +
-      "<script src='/static/js/app.ac1d215d5a9b608093eb.js' defer></script>" +
+      "<link href='/static/css/app.43c6b9c73ed2bac7eb2b076ea3a65cd7.css' rel=stylesheet />" +
+      "<script src='/static/js/manifest.24b2b268a605e9a0207d.js'></script>" +
+      "<script src='/static/js/vendor.7d87363e54cb996330a8.js'></script>" +
+      "<script src='/static/js/app.75ef96689f6ff561f279.js' defer></script>" +
       "<title>Pegg - Spark Conversation</title>" +
       "</head><body>"+
       "<div id='app'></div>" +

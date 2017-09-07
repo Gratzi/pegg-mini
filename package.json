@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "firebase": "^3.6.4",
-    "gsap": "^1.20.2",
+    "gsap": "git+https://github.com/auggernaut/GreenSock-JS.git",
     "vue": "^2.1.0",
     "vue-router": "^2.7.0",
     "vue-touch": "^2.0.0-beta.4",
